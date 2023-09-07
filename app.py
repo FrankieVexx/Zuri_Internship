@@ -1,34 +1,32 @@
-from flask import *
-import json, time, datetime
+import datetime
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 @app.route('/api', methods=['GET'])
 def APIend():
-    # Get slack name and track from the url
+    # Get query parameters from the URL
     slack_name = request.args.get('slack_name')
     track = request.args.get('track')
     
     # Getting current date and time information
     current_day = datetime.datetime.now().strftime("%A")
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    current_utc_time = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
     
-    # Github information
+    # GitHub information
     github_repo_url = "https://github.com/FrankieVexx/Zuri_Internship"
     github_file_url = f'{github_repo_url}/app.py'
     
-    
-    data = {"slack_name": "Frankie",
-        "current_day": "Thursday",
-        "utc_time": "2023-09-07T21:55:45Z",
-        "track": "backend",
-        "github_file_url": "https://github.com/FrankieVexx/Zuri_Internship/app.py",
-        "github_repo_url": "https://github.com/FrankieVexx/Zuri_Internship",
-         "status_code": "200"
+    #JSON response
+    data = {
+        "slack_name": slack_name,
+        "current_day": current_day,
+        "utc_time": current_utc_time,
+        "track": track,
+        "github_file_url": github_file_url,
+        "github_repo_url": github_repo_url,
+        "status_code": 200
     }
-    
-    data["current_day"] = current_day
-    data["utc_time"] = current_time
     
     return jsonify(data)
 
