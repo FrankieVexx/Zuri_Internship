@@ -11,7 +11,7 @@ def APIend():
     
     # Getting current date and time information
     current_day = datetime.datetime.now().strftime("%A")
-    current_time = datetime.datetime.now().strftime("%H:%M:%S")
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
     # Github information
     github_repo_url = "https://github.com/FrankieVexx/Zuri_Internship"
