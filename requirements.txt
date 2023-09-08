@@ -11,4 +11,4 @@ pytils==0.4.1
 PyYAML==6.0.1
 six==1.16.0
 tools==0.1.9
-Werkzeug==2.3.7
+Werkzeug==2.2.3
