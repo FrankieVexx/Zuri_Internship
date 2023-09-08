@@ -15,7 +15,7 @@ def APIend():
     
     # GitHub information
     github_repo_url = "https://github.com/FrankieVexx/Zuri_Internship"
-    github_file_url = f'{github_repo_url}/app.py'
+    github_file_url = f'{github_repo_url}/blob/main/app.py'
     
     #JSON response
     data = {
